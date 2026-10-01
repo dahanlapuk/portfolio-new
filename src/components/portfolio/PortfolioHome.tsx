@@ -54,6 +54,7 @@ export function PortfolioHome() {
   const [language, setLanguage] = useState<Language>('en')
   const [theme, setTheme] = useState<Theme>('light')
   const [aboutOpen, setAboutOpen] = useState(false)
+  const [talkOpen, setTalkOpen] = useState(false)
   const ui = copy[language]
 
   useEffect(() => {
@@ -105,7 +106,7 @@ export function PortfolioHome() {
 
       </main>
 
-      <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top">HEX ADEV<span>.</span></a><p>Digital products, systems,<br />and thoughtful interfaces.</p></div><div className="footer-cta"><p>{ui.contact}</p><button className="footer-talk" type="button">Let&apos;s talk <span>↗</span></button><div className="footer-contacts"><a href="mailto:itbamuhammadkamil@gmail.com">Email <span>↗</span></a><a href="https://www.instagram.com/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.linkedin.com/in/itbamuhammad/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div></div></div><div className="footer-bottom"><span>© 2026 Hexadev Technologies</span></div></footer>
+      <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top">ITBA<span>.</span></a><p>{ui.footerCopy.split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</p></div><div className="footer-cta"><p>{ui.contact}</p><div className="footer-talk-wrap"><button className="footer-talk" type="button" aria-expanded={talkOpen} onClick={() => setTalkOpen((open) => !open)}>{ui.letsTalk} <span>↗</span></button>{talkOpen && <div className="talk-options"><a href="https://ig.me/m/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.linkedin.com/in/itbamuhammad/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="mailto:itbamuhammadkamil@gmail.com">Email <span>↗</span></a></div>}</div></div></div><div className="footer-bottom"><span>© 2026 Itba Muhammad Kamil</span></div></footer>
     </div>
   )
 }

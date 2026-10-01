@@ -159,9 +159,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .footer-cta { align-self: end; }
 .footer-cta p { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
 .footer-talk { padding: 0; border: 0; color: var(--paper); background: transparent; font: 600 clamp(38px, 6vw, 78px) 'Manrope', sans-serif; letter-spacing: -.09em; cursor: pointer; }
-.footer-talk span, .footer-contacts span { color: var(--acid); }
-.footer-contacts { display: flex; gap: 16px; max-height: 0; overflow: hidden; opacity: 0; transform: translateY(8px); transition: max-height .25s, opacity .25s, transform .25s; font: 10px 'DM Mono', monospace; text-transform: uppercase; }
-.footer-cta:hover .footer-contacts, .footer-cta:focus-within .footer-contacts { max-height: 30px; opacity: 1; transform: translateY(0); }
+.footer-talk span { color: var(--acid); }
+.talk-options { display: flex; gap: 16px; padding-top: 14px; font: 10px 'DM Mono', monospace; text-transform: uppercase; }
+.talk-options span { color: var(--acid); }
+.talk-options a:hover { color: var(--acid); }
 .footer-bottom { display: flex; justify-content: center; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font: 10px 'DM Mono', monospace; letter-spacing: .03em; text-transform: uppercase; }
 .footer-bottom a:hover { color: var(--paper); }
 
@@ -206,7 +207,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .writing-cta { font-size: 12px; }
   .writing-item h2 { font-size: 20px; line-height: 1.05; }
   .writing-item p { font-size: 8px; }
-  .footer-contacts { flex-wrap: wrap; }
+  .talk-options { flex-wrap: wrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {
