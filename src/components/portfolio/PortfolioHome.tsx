@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { experience, projects, writing } from '#/data/portfolio'
+import { ProjectPanel } from '#/components/portfolio/ProjectPanel'
+import { experience, projects, writing, type ProjectSlug } from '#/data/portfolio'
 import { aboutSocialLinks, copy, projectCopy, socialLinks, type Language, type Theme } from '#/data/site'
 
 
@@ -50,7 +51,12 @@ function TypewriterText({ text }: { text: string }) {
   )
 }
 
-export function PortfolioHome() {
+type PortfolioHomeProps = {
+  activeProject?: ProjectSlug
+  onSelectProject: (slug?: ProjectSlug) => void
+}
+
+export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeProps) {
   const [language, setLanguage] = useState<Language>('en')
   const [theme, setTheme] = useState<Theme>('light')
   const [aboutOpen, setAboutOpen] = useState(false)
@@ -81,7 +87,7 @@ export function PortfolioHome() {
 
         <section className="work-section section-frame" id="work">
           <div className="section-heading"><h2 className="section-title">{ui.selectedWork}</h2><p className="section-note">{ui.workNote}</p></div>
-          <div className="project-list">{projects.map((project) => { const localized = projectCopy[project.slug][language]; return <article className={`project ${project.featured ? 'project-featured' : ''} ${project.status ? 'project-archived' : ''} ${project.liveUrl ? 'project-clickable' : ''}`} key={project.number} role={project.liveUrl ? 'link' : undefined} tabIndex={project.liveUrl ? 0 : undefined} onClick={() => project.liveUrl && window.open(project.liveUrl, '_blank', 'noopener,noreferrer')} onKeyDown={(event) => { if (project.liveUrl && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); window.open(project.liveUrl, '_blank', 'noopener,noreferrer') } }}><div className="project-visual"><span>{project.number}</span><div className="visual-label">{project.name}</div><div className="visual-grid" /></div><div className="project-copy"><div className="project-title"><span className="project-number">{project.number}</span><h2>{project.name}</h2></div><p className="project-type">{localized.type} {project.status && <b className="project-status">{project.status === 'Active' ? ui.status : project.status === 'Archived' ? ui.archived : ui.deprecated}</b>}</p><p className="project-description">{localized.description}</p><p className="project-case-study">{localized.story}</p><p className="project-stack">{project.stack}</p><div className="project-actions" onClick={(event) => event.stopPropagation()}><a className="project-button" href={project.githubUrl} target="_blank" rel="noreferrer">{ui.github} <span>↗</span></a>{project.liveUrl ? <a className="project-button" href={project.liveUrl} target="_blank" rel="noreferrer">{project.status ? ui.historicalSite : 'Live site'} <span>↗</span></a> : <span className="project-button project-button-disabled">{ui.liveUnavailable}</span>}</div></div></article> })}</div>
+          <div className="project-list">{projects.map((project) => { const localized = projectCopy[project.slug][language]; return <article className={`project ${project.featured ? 'project-featured' : ''} ${project.status ? 'project-archived' : ''} project-clickable`} key={project.number} onClick={() => onSelectProject(project.slug)}><div className="project-visual"><span>{project.number}</span><div className="visual-label">{project.name}</div><div className="visual-grid" /></div><div className="project-copy"><div className="project-title"><span className="project-number">{project.number}</span><h2>{project.name}</h2></div><p className="project-type">{localized.type} {project.status && <b className="project-status">{project.status === 'Active' ? ui.status : project.status === 'Archived' ? ui.archived : ui.deprecated}</b>}</p><p className="project-description">{localized.description}</p><p className="project-case-study">{localized.story}</p><p className="project-stack">{project.stack}</p><div className="project-actions" onClick={(event) => event.stopPropagation()}><button className="project-button" type="button" onClick={() => onSelectProject(project.slug)}>{ui.details}</button><a className="project-button" href={project.githubUrl} target="_blank" rel="noreferrer">{ui.github} <span>↗</span></a>{project.liveUrl ? <a className="project-button" href={project.liveUrl} target="_blank" rel="noreferrer">{project.status ? ui.historicalSite : 'Live site'} <span>↗</span></a> : <span className="project-button project-button-disabled">{ui.liveUnavailable}</span>}</div></div></article> })}</div>
           <a className="section-link" href="https://github.com/dahanlapuk" target="_blank" rel="noreferrer">{ui.seeAll} <span>↗</span></a>
         </section>
 
@@ -107,6 +113,8 @@ export function PortfolioHome() {
       </main>
 
       <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top">ITBA<span>.</span></a><p>{ui.footerCopy.split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</p></div><div className="footer-cta"><p>{ui.contact}</p><div className="footer-talk-wrap"><button className="footer-talk" type="button" aria-expanded={talkOpen} onClick={() => setTalkOpen((open) => !open)}>{ui.letsTalk} <span>↗</span></button>{talkOpen && <div className="talk-options"><a href="https://ig.me/m/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.linkedin.com/in/itbamuhammad/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="mailto:itbamuhammadkamil@gmail.com">Email <span>↗</span></a></div>}</div></div></div><div className="footer-bottom"><span>© 2026 Itba Muhammad Kamil</span></div></footer>
+
+      <ProjectPanel slug={activeProject} language={language} onClose={() => onSelectProject(undefined)} />
     </div>
   )
 }

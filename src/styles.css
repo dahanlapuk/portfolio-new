@@ -154,7 +154,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .site-footer { padding-top: 80px; padding-bottom: 24px; color: var(--paper); background: var(--ink); }
 .footer-main { display: flex; justify-content: space-between; padding-bottom: 100px; }
 .footer-main p { margin-top: 25px; color: var(--muted); font-size: 17px; line-height: 1.4; }
-.footer-brand .wordmark { font-size: clamp(28px, 4vw, 52px); letter-spacing: -.12em; }
+.footer-brand .wordmark { font-size: clamp(28px, 4vw, 52px); letter-spacing: -.05em; }
 .email-dot { color: var(--acid); }
 .footer-cta { align-self: end; }
 .footer-cta p { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
@@ -215,3 +215,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .typewriter-keyword::after { transform: scaleX(1); }
 }
+
+.project-panel { width: min(720px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 1px solid var(--line); color: var(--ink); background: var(--paper); }
+.project-panel::backdrop { background: color-mix(in srgb, var(--ink) 55%, transparent); }
+.project-panel-body { display: grid; gap: 16px; padding: clamp(22px, 4vw, 44px); }
+.project-panel-body h2 { margin: 0; font: 600 clamp(28px, 5vw, 48px) 'Manrope', sans-serif; letter-spacing: -.06em; }
+.project-panel-close { justify-self: end; padding: 0; border: 0; color: inherit; background: transparent; font: 11px 'DM Mono', monospace; text-transform: uppercase; cursor: pointer; }
+body:has(dialog[open]) { overflow: hidden; }
