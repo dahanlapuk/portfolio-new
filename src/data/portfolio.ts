@@ -1,9 +1,9 @@
+export type ProjectSlug = 'biblioteka-filsafat' | 'salsyaf' | 'ceki-scoreboard' | 'goodcut' | 'lazuarda' | 'jessd-symposium' | 'vienna-ai'
+
 export type Project = {
   number: string
+  slug: ProjectSlug
   name: string
-  type: string
-  description: string
-  caseStudy?: string
   stack: string
   featured?: boolean
   status?: 'Active' | 'Archived' | 'Deprecated'
@@ -14,12 +14,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     number: '01',
+    slug: 'biblioteka-filsafat',
     name: 'Biblioteka Filsafat UI',
-    type: 'Library management system',
-    description:
-      'A library system for the Department of Philosophy, Universitas Indonesia, built to make collections, loans, members, and administrative activity easier to understand and manage.',
-    caseStudy:
-      'The project began as a catalog. Building it further exposed harder questions: how should stock be allocated, how can a loan remain consistent when several records change, and what should a public visitor be allowed to know? The new system treats those questions as part of the product, not as details to solve later.',
     stack: 'React · TypeScript · PostgreSQL',
     featured: true,
     githubUrl: 'https://github.com/dahanlapuk/library-management-filsafat',
@@ -27,53 +23,47 @@ export const projects: Project[] = [
   },
   {
     number: '02',
+    slug: 'salsyaf',
     name: 'Salsyaf',
-    type: 'Full-stack content platform',
-    description: 'A public website and admin system for news, schedules, galleries, and media.',
     stack: 'Next.js · Express · MongoDB',
     githubUrl: 'https://github.com/dahanlapuk/salsyaf',
     liveUrl: 'https://salsyaf.vercel.app/',
   },
   {
     number: '03',
+    slug: 'ceki-scoreboard',
     name: 'Ceki Scoreboard',
-    type: 'Interactive scoring application',
-    description: 'A browser-based scoring tool for rounds, rankings, and game states.',
     stack: 'React · JavaScript',
     githubUrl: 'https://github.com/dahanlapuk/ceki-scoreboard',
   },
   {
     number: '04',
+    slug: 'goodcut',
     name: 'Goodcut',
-    type: 'Interactive investment proposal',
-    description: 'A digital presentation combining business information, projections, and data visualization.',
     stack: 'React · Vite · Recharts',
     githubUrl: 'https://github.com/dahanlapuk/goodcut',
     liveUrl: 'https://goodcut.vercel.app/',
   },
   {
     number: '05',
+    slug: 'lazuarda',
     name: 'Lazuarda',
-    type: 'Client portfolio website',
-    description: 'A responsive portfolio for a graphic designer and art director.',
     stack: 'Web development · Client work',
     githubUrl: 'https://github.com/dahanlapuk/lazuarda',
     liveUrl: 'https://lazuarda.vercel.app/',
   },
   {
     number: '06',
+    slug: 'jessd-symposium',
     name: 'JESSD Symposium',
-    type: 'International symposium website',
-    description: 'A historical event website covering event information, registration, schedule, and speakers.',
     stack: 'Archived project',
     status: 'Archived',
     githubUrl: 'https://github.com/dahanlapuk/jessd-symposium',
   },
   {
     number: '07',
+    slug: 'vienna-ai',
     name: 'Vienna AI',
-    type: 'AI-powered web project',
-    description: 'An archived experiment whose original API integration is no longer available.',
     stack: 'Deprecated deployment',
     status: 'Deprecated',
     githubUrl: 'https://github.com/dahanlapuk/vienna-ai',

@@ -21,31 +21,31 @@ export const aboutSocialLinks = [
 ] as const
 
 export const projectCopy = {
-  '01': {
+  'biblioteka-filsafat': {
     en: { type: 'Library management system · Active', description: 'A library system for the Department of Philosophy, Universitas Indonesia, built to make collections, loans, members, and administrative activity easier to understand and manage.', story: 'The project began as a catalog. Building it further exposed harder questions: how should stock be allocated, how can a loan remain consistent when several records change, and what should a public visitor be allowed to know? That is how Pustaka Filsafat evolved into Biblioteka Filsafat UI: a more deliberate system for the library it serves.' },
     id: { type: 'Sistem manajemen perpustakaan · Aktif', description: 'Sistem perpustakaan untuk Departemen Filsafat, Universitas Indonesia, yang membantu mengelola koleksi, peminjaman, anggota, dan aktivitas administratif.', story: 'Proyek ini bermula sebagai katalog. Saat dikembangkan lebih jauh, muncul pertanyaan yang lebih sulit: bagaimana stok dialokasikan, bagaimana transaksi tetap konsisten ketika beberapa data berubah, dan informasi apa yang boleh diketahui pengunjung? Dari situlah Pustaka Filsafat berkembang menjadi Biblioteka Filsafat UI, sebuah sistem yang dirancang lebih sadar terhadap kebutuhan perpustakaan.' },
   },
-  '02': {
+  'salsyaf': {
     en: { type: 'Full-stack pesantren platform', description: 'A public website and admin system for Pondok Pesantren Tahfidzul Quran Salafiyah Syafi’iyah Proto, covering news, schedules, galleries, and media.', story: 'Salsyaf separates the public experience from the work of managing pesantren content behind it.' },
     id: { type: 'Platform pesantren full-stack', description: 'Website publik dan sistem admin untuk Pondok Pesantren Tahfidzul Quran Salafiyah Syafi’iyah Proto, yang mencakup berita, jadwal, galeri, dan media.', story: 'Salsyaf memisahkan pengalaman pengunjung dari pekerjaan mengelola konten pesantren di baliknya.' },
   },
-  '03': {
+  'ceki-scoreboard': {
     en: { type: 'Interactive scoring application', description: 'A browser-based scoring tool for rounds, rankings, and game states.', story: 'The interface turns a specific game rule set into visible, predictable state.' },
     id: { type: 'Aplikasi penilaian interaktif', description: 'Aplikasi browser untuk ronde, peringkat, dan status permainan.', story: 'Antarmukanya menerjemahkan seperangkat aturan permainan menjadi status yang terlihat dan dapat diprediksi.' },
   },
-  '04': {
+  'goodcut': {
     en: { type: 'Interactive investment proposal', description: 'A digital presentation combining business information, projections, and data visualization.', story: 'Goodcut treats a proposal as an experience that guides attention, not just a static document.' },
     id: { type: 'Proposal investasi interaktif', description: 'Presentasi digital yang menggabungkan informasi bisnis, proyeksi, dan visualisasi data.', story: 'Goodcut memperlakukan proposal sebagai pengalaman yang mengarahkan perhatian, bukan sekadar dokumen statis.' },
   },
-  '05': {
+  'lazuarda': {
     en: { type: 'Client portfolio website', description: 'A responsive portfolio for a graphic designer and art director.', story: 'The site gives a large body of visual work a clear, browsable structure.' },
     id: { type: 'Website portfolio client', description: 'Portfolio responsif untuk graphic designer dan art director.', story: 'Website ini memberi struktur yang jelas dan mudah ditelusuri untuk kumpulan karya visual yang besar.' },
   },
-  '06': {
+  'jessd-symposium': {
     en: { type: 'International symposium website', description: 'A historical event website covering event information, registration, schedule, and speakers.', story: 'Archived historical work, kept here as part of the record.' },
     id: { type: 'Website simposium internasional', description: 'Website acara historis yang memuat informasi, registrasi, jadwal, dan pembicara.', story: 'Karya historis yang diarsipkan sebagai bagian dari catatan perjalanan.' },
   },
-  '07': {
+  'vienna-ai': {
     en: { type: 'AI-powered web project', description: 'An archived experiment whose original API integration is no longer available.', story: 'Deprecated after the original API integration became unavailable.' },
     id: { type: 'Proyek web berbasis AI', description: 'Eksperimen yang diarsipkan karena integrasi API aslinya sudah tidak tersedia.', story: 'Deprecated setelah integrasi API aslinya tidak lagi tersedia.' },
   },
