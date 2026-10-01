@@ -138,13 +138,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .about-detail { max-width: 290px; font-size: 17px; line-height: 1.45; }
 .about-detail p { margin: 0; }
 .about-extra { margin-top: 16px !important; color: var(--muted); }
-.about-trigger { position: relative; align-self: end; width: 180px; min-height: 50px; transition: width .5s cubic-bezier(.2, .8, .2, 1), min-height .5s cubic-bezier(.2, .8, .2, 1), padding .5s cubic-bezier(.2, .8, .2, 1), background .35s, border-color .35s; }
-.about-open .about-trigger { width: min(360px, 100%); min-height: 430px; padding: 16px; border: 1px solid color-mix(in srgb, var(--ink) 35%, transparent); background: color-mix(in srgb, var(--acid) 88%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.about-trigger { position: relative; align-self: end; width: 180px; min-height: 50px; }
 .about-social-panel { position: absolute; right: 0; bottom: calc(100% + 14px); z-index: 3; display: flex; width: min(360px, calc(100vw - 44px)); flex-direction: column; gap: 0; overflow: hidden; padding: 0 16px; border: 1px solid color-mix(in srgb, var(--ink) 35%, transparent); background: color-mix(in srgb, var(--acid) 88%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transform: scaleY(0); transform-origin: bottom right; transition: transform .4s cubic-bezier(.2, .8, .2, 1), opacity .25s; }
 .about-open .about-social-panel { opacity: 1; pointer-events: auto; transform: scaleY(1); }
-.about-open .about-social-panel { top: 16px; right: 16px; bottom: 74px; width: calc(100% - 32px); padding: 0; border: 0; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; transform: scaleY(1); }
-.about-button { position: absolute; right: 16px; bottom: 16px; z-index: 4; width: 100%; transition: width .45s cubic-bezier(.2, .8, .2, 1), background .25s, color .25s; }
-.about-open .about-button { width: calc(100% - 32px); }
 .about-social-link { position: relative; display: flex; width: min(360px, 100%); min-height: 58px; align-items: center; justify-content: space-between; padding: 0; border-bottom: 2px solid color-mix(in srgb, var(--ink) 72%, transparent); font: 500 18px 'Manrope', sans-serif; text-transform: none; transform: translateX(-18px); opacity: 0; transition: transform .35s calc(var(--social-index) * 70ms), opacity .35s calc(var(--social-index) * 70ms), color .2s; }
 .about-social-link:last-child { border-bottom: 0; }
 .about-open .about-social-link { transform: translateX(0); opacity: 1; }
