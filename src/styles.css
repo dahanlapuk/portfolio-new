@@ -222,3 +222,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .project-panel-body h2 { margin: 0; font: 600 clamp(28px, 5vw, 48px) 'Manrope', sans-serif; letter-spacing: -.06em; }
 .project-panel-close { justify-self: end; padding: 0; border: 0; color: inherit; background: transparent; font: 11px 'DM Mono', monospace; text-transform: uppercase; cursor: pointer; }
 body:has(dialog[open]) { overflow: hidden; }
+.project-panel { overflow-y: auto; overscroll-behavior: contain; }
+.project-panel-section h3 { margin: 0 0 6px; color: var(--muted); font: 11px 'DM Mono', monospace; letter-spacing: .04em; text-transform: uppercase; }
+.project-panel-section p { margin: 0; line-height: 1.55; }

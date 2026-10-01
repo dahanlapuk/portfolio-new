@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 import { projects, type ProjectSlug } from '#/data/portfolio'
+import { caseStudies } from '#/data/case-studies'
 import { copy, projectCopy, type Language } from '#/data/site'
 
 type ProjectPanelProps = {
@@ -14,6 +15,7 @@ export function ProjectPanel({ slug, language, onClose }: ProjectPanelProps) {
   const project = projects.find((item) => item.slug === slug)
   const ui = copy[language]
   const localized = project ? projectCopy[project.slug][language] : undefined
+  const sections = project ? caseStudies[project.slug]?.[language] : undefined
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -41,7 +43,7 @@ export function ProjectPanel({ slug, language, onClose }: ProjectPanelProps) {
           <h2 id="project-panel-title">{project.name}</h2>
           <p className="project-type">{localized.type} {project.status && <b className="project-status">{project.status === 'Active' ? ui.status : project.status === 'Archived' ? ui.archived : ui.deprecated}</b>}</p>
           <p className="project-description">{localized.description}</p>
-          <p className="project-case-study">{localized.story}</p>
+          {sections ? sections.map((section) => <section className="project-panel-section" key={section.heading}><h3>{section.heading}</h3><p>{section.body}</p></section>) : <p className="project-case-study">{localized.story}</p>}
           <p className="project-stack">{project.stack}</p>
           <div className="project-actions">
             <a className="project-button" href={project.githubUrl} target="_blank" rel="noreferrer">{ui.github} <span>↗</span></a>
