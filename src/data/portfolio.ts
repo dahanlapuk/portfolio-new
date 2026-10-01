@@ -35,6 +35,7 @@ export const projects: Project[] = [
     name: 'Ceki Scoreboard',
     stack: 'React · JavaScript',
     githubUrl: 'https://github.com/dahanlapuk/ceki-scoreboard',
+    liveUrl: 'https://ceki-scoreboard.vercel.app/',
   },
   {
     number: '04',
