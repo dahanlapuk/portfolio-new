@@ -201,8 +201,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .footer-cta { margin-top: 70px; }
   .footer-bottom { display: grid; gap: 13px; }
   .writing-list { grid-template-columns: 1fr; gap: 16px; }
-  .writing-overlay { position: absolute; transform: translateY(0); }
-  .writing-overlay-title, .writing-cta { transform: translateY(0); opacity: 1; }
   .writing-overlay-title { font-size: 25px; }
   .writing-cta { font-size: 12px; }
   .writing-item h2 { font-size: 20px; line-height: 1.05; }
@@ -225,3 +223,10 @@ body:has(dialog[open]) { overflow: hidden; }
 .project-panel { overflow-y: auto; overscroll-behavior: contain; }
 .project-panel-section h3 { margin: 0 0 6px; color: var(--muted); font: 11px 'DM Mono', monospace; letter-spacing: .04em; text-transform: uppercase; }
 .project-panel-section p { margin: 0; line-height: 1.55; }
+
+@media (hover: none) {
+  .writing-item:hover { padding-left: 0; color: inherit; }
+  .writing-overlay { position: static; padding: 0 18px; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; transform: none; }
+  .writing-overlay-title { display: none; }
+  .writing-cta { transform: none; opacity: 1; }
+}
