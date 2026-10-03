@@ -77,10 +77,3 @@ export const writing = [
   { title: 'Komodifikasi dalam Kalkulasi Politik Mahasiswa', category: 'Political · Social Thought', image: 'KdKPM', url: 'https://medium.com/@itbamuhammad/komodifikasi-dalam-kalkulasi-politik-mahasiswa-c823424ef7f8' },
   { title: 'Wadah', category: 'Philosophy · Essay', image: 'Wadah', url: 'https://medium.com/@itbamuhammad/wadah-6caf1b9ef989' },
 ]
-
-export const experience = [
-  { period: '2026', role: 'Library Intern', organization: 'Department of Philosophy Library, FIB UI' },
-  { period: '2024—26', role: 'Head of Media Production', organization: 'DPC GMNI Depok' },
-  { period: '2023—24', role: 'Institutional Staff · General Secretary', organization: 'DPM UI · DPK GMNI FIB UI' },
-]
-

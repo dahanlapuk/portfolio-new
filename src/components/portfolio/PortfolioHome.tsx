@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 
 import { ProjectPanel } from '#/components/portfolio/ProjectPanel'
-import { experience, projects, writing, type ProjectSlug } from '#/data/portfolio'
+import { experienceItems } from '#/data/experience'
+import { projects, writing, type ProjectSlug } from '#/data/portfolio'
 import { aboutSocialLinks, copy, projectCopy, socialLinks, type Language, type Theme } from '#/data/site'
 
 
@@ -62,6 +63,7 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
   const [theme, setTheme] = useState<Theme>('light')
   const [aboutOpen, setAboutOpen] = useState(false)
   const [talkOpen, setTalkOpen] = useState(false)
+  const [openExperience, setOpenExperience] = useState<string | null>(null)
   const ui = copy[language]
 
   useEffect(() => {
@@ -106,7 +108,35 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
 
         <section className="experience-section section-frame" id="experience">
           <div className="section-heading"><h2 className="section-title">{ui.experience}</h2><p className="section-note">{ui.experienceNote}</p></div>
-          <div className="experience-list">{experience.map((item) => <div key={item.organization}><span>{item.period}</span><h2>{item.organization}</h2><p>{item.role}</p></div>)}</div>
+          <div className="experience-list">
+            {experienceItems.map((item) => {
+              const open = openExperience === item.id
+              return (
+                <div className={`experience-item${open ? ' experience-open' : ''}`} key={item.id}>
+                  <h3 className="experience-heading">
+                    <button className="experience-toggle" id={`experience-toggle-${item.id}`} type="button" aria-expanded={open} aria-controls={`experience-detail-${item.id}`} onClick={() => setOpenExperience(open ? null : item.id)}>
+                      <span className="experience-period">{item.period}</span>
+                      <span className="experience-org">{item.organization[language]}</span>
+                      <span className="experience-role">{item.role[language]}</span>
+                      <span className="experience-icon" aria-hidden="true">+</span>
+                    </button>
+                  </h3>
+                  <div className="experience-detail" id={`experience-detail-${item.id}`} role="region" aria-labelledby={`experience-toggle-${item.id}`}>
+                    <div className="experience-detail-inner">
+                      <div className="experience-detail-body">
+                        {item.details[language].map((group) => (
+                          <section key={group.heading}>
+                            <h4>{group.heading}</h4>
+                            <ul>{group.points.map((point) => <li key={point}>{point}</li>)}</ul>
+                          </section>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </section>
 
         <section className={`about-band section-frame ${aboutOpen ? 'about-open' : ''}`}><div><h2>{ui.beyondTitle}</h2></div><div className="about-detail"><p>{ui.beyondCopy}</p></div><div className="about-trigger" onMouseEnter={() => setAboutOpen(true)} onMouseLeave={() => setAboutOpen(false)}><button className="button button-light about-button" type="button" onClick={() => setAboutOpen(true)} aria-expanded={aboutOpen}>{aboutOpen ? 'Close' : ui.moreAbout} <span className={aboutOpen ? 'button-arrow is-rotated' : 'button-arrow'}>↗</span></button><div className="about-social-panel" aria-hidden={!aboutOpen}>{aboutSocialLinks.map(([label, href], index) => <a className="about-social-link" style={{ '--social-index': index } as React.CSSProperties} href={href} target="_blank" rel="noreferrer" key={label}><strong>{label}</strong><span className="social-card-arrow">↗</span></a>)}</div></div></section>
