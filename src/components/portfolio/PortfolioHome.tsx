@@ -5,17 +5,18 @@ import { experience, projects, writing, type ProjectSlug } from '#/data/portfoli
 import { aboutSocialLinks, copy, projectCopy, socialLinks, type Language, type Theme } from '#/data/site'
 
 
+const keywordSplit = /(digital|filosof\w*|philosoph\w*)/gi
+const keywordMatch = /^(digital|filosof\w*|philosoph\w*)$/i
+
+function highlight(value: string) {
+  return value.split(keywordSplit).map((part, index) =>
+    keywordMatch.test(part) ? <mark className="typewriter-keyword" key={`${part}-${index}`}>{part}</mark> : part,
+  )
+}
+
 function TypewriterText({ text }: { text: string }) {
   const [visibleText, setVisibleText] = useState('')
   const [isTyping, setIsTyping] = useState(true)
-
-  const renderTypedText = () => {
-    const parts = visibleText.split(/(digital|filosof\w*|philosoph\w*)/gi)
-    return parts.map((part, index) => {
-      const isKeyword = /^(digital|filosof\w*|philosoph\w*)$/i.test(part)
-      return isKeyword ? <mark className="typewriter-keyword" key={`${part}-${index}`}>{part}</mark> : part
-    })
-  }
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -45,8 +46,8 @@ function TypewriterText({ text }: { text: string }) {
 
   return (
     <>
-      <span className="typewriter-measure" aria-hidden="true">{text}</span>
-      <span className="typewriter-live" aria-hidden="true">{renderTypedText()}{isTyping && <span className="typewriter-cursor cursor-blink" />}</span>
+      <span className="typewriter-measure" aria-hidden="true">{highlight(text)}</span>
+      <span className="typewriter-live" aria-hidden="true">{highlight(visibleText)}{isTyping && <span className="typewriter-cursor cursor-blink" />}</span>
     </>
   )
 }
