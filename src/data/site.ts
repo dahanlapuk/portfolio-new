@@ -59,3 +59,39 @@ export const copy = {
     nav: ['Karya', 'Tulisan', 'Pengalaman', 'Tentang'], heroKicker: 'Web developer / builder', heroTitle: 'Membangun hal-hal digital melalui pendekatan kritis yang dibentuk secara filosofis', heroIntro: 'Saya Itba Muhammad Kamil, developer dan penulis yang tertarik pada hubungan antara gagasan, sistem, dan hal-hal yang kita buat.', viewWork: 'Lihat karya', readWriting: 'Baca tulisan', selectedWork: 'Karya terpilih', workNote: 'Produk digital, aplikasi, website, dan eksperimen.', seeAll: 'Lihat semua karya', approach: 'Pendekatan', approachNote: 'Cara saya memahami masalah.', approachTitle: 'Membangun software jarang hanya soal menulis kode.', approachIntro: 'Saya mencoba memahami masalahnya, melihat hubungan antarbagian, lalu menggunakan implementasi untuk menguji gagasan di baliknya.', principles: ['Mempertanyakan asumsi', 'Memahami sistem', 'Membangun, menguji, memikirkan ulang'], writing: 'Tulisan', writingNote: 'Gagasan di antara filsafat dan kehidupan sehari-hari.', readAll: 'Baca semua tulisan', experience: 'Pengalaman', experienceNote: 'Bekerja di antara software, riset, media, dan organisasi.', beyond: 'Di luar layar', beyondTitle: 'Bangun, pikirkan, tulis.', beyondCopy: 'Pekerjaan saya juga mencakup media digital, produksi konten, website acara, riset, dan koordinasi organisasi.', moreAbout: 'Tentang saya', liveUnavailable: 'Live belum tersedia', historicalSite: 'Situs historis', contact: 'Punya masalah yang layak dibangun?', letsTalk: 'Mari bicara', available: 'Terbuka untuk pekerjaan terpilih', scroll: 'Gulir untuk melihat', based: 'Berbasis di Indonesia', github: 'GitHub', status: 'Aktif', details: 'Detail', close: 'Tutup', archived: 'Arsip', deprecated: 'Deprecated', back: 'Kembali ke atas', footerCopy: 'Web developer / builder\ndengan pendekatan yang dibentuk filsafat.',
   },
 } as const
+
+export const portfolioFiles = {
+  id: {
+    href: 'https://4ttr4uge3askww1j.public.blob.vercel-storage.com/Itba-Muhammad-Kamil-Portfolio-ID.pdf?download=1',
+    label: 'Unduh Portofolio',
+  },
+  en: {
+    href: 'https://4ttr4uge3askww1j.public.blob.vercel-storage.com/Itba-Muhammad-Kamil-Portfolio-EN.pdf?download=1',
+    label: 'Download Portfolio',
+  },
+} as const
+
+export const downloadCopy = {
+  en: {
+    title: 'Interested in my web development work?',
+    note: 'Download the portfolio as a PDF.',
+    plainTitle: 'Portfolio only',
+    plainButton: 'Download PDF',
+    cvTitle: 'Portfolio + CV',
+    cvNote: 'The portfolio and CV are sent by email on request.',
+    cvButton: 'Request by email',
+    mailSubject: 'Portfolio and CV request',
+    mailBody: 'Hi Itba,\n\nI came across your portfolio and would like to request your portfolio and CV.\n\nName:\nCompany / organisation:\nPurpose:\n\nThank you.',
+  },
+  id: {
+    title: 'Tertarik dengan portofolio web development saya?',
+    note: 'Unduh portofolionya dalam bentuk PDF.',
+    plainTitle: 'Portofolio saja',
+    plainButton: 'Unduh PDF',
+    cvTitle: 'Portofolio + CV',
+    cvNote: 'Portofolio dan CV dikirim lewat email atas permintaan.',
+    cvButton: 'Minta lewat email',
+    mailSubject: 'Permintaan portofolio dan CV',
+    mailBody: 'Halo Itba,\n\nSaya melihat portofolio Anda dan ingin meminta portofolio beserta CV-nya.\n\nNama:\nInstansi / perusahaan:\nKeperluan:\n\nTerima kasih.',
+  },
+} as const

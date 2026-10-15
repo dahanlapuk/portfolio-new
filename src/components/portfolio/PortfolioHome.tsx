@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ProjectPanel } from '#/components/portfolio/ProjectPanel'
 import { experienceItems } from '#/data/experience'
 import { projects, writing, type ProjectSlug } from '#/data/portfolio'
-import { aboutSocialLinks, copy, projectCopy, socialLinks, type Language, type Theme } from '#/data/site'
+import { aboutSocialLinks, copy, downloadCopy, portfolioFiles, projectCopy, socialLinks, type Language, type Theme } from '#/data/site'
 
 
 const keywordSplit = /(digital|filosof\w*|philosoph\w*)/gi
@@ -65,6 +65,7 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
   const [talkOpen, setTalkOpen] = useState(false)
   const [openExperience, setOpenExperience] = useState<string | null>(null)
   const ui = copy[language]
+  const dl = downloadCopy[language]
 
   useEffect(() => {
     const hour = new Date().getHours()
@@ -141,6 +142,20 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
 
         <section className={`about-band section-frame ${aboutOpen ? 'about-open' : ''}`}><div><h2>{ui.beyondTitle}</h2></div><div className="about-detail"><p>{ui.beyondCopy}</p></div><div className="about-trigger" onMouseEnter={() => setAboutOpen(true)} onMouseLeave={() => setAboutOpen(false)}><button className="button button-light about-button" type="button" onClick={() => setAboutOpen(true)} aria-expanded={aboutOpen}>{aboutOpen ? 'Close' : ui.moreAbout} <span className={aboutOpen ? 'button-arrow is-rotated' : 'button-arrow'}>↗</span></button><div className="about-social-panel" aria-hidden={!aboutOpen}>{aboutSocialLinks.map(([label, href], index) => <a className="about-social-link" style={{ '--social-index': index } as React.CSSProperties} href={href} target="_blank" rel="noreferrer" key={label}><strong>{label}</strong><span className="social-card-arrow">↗</span></a>)}</div></div></section>
 
+        <section className="download-section section-frame" id="download">
+          <div className="section-heading"><h2 className="section-title">{dl.title}</h2><p className="section-note">{dl.note}</p></div>
+          <div className="download-grid">
+            <div className="download-option">
+              <h3>{dl.plainTitle}</h3>
+              <a className="button button-dark" href={portfolioFiles[language].href}>{dl.plainButton} <span>↓</span></a>
+            </div>
+            <div className="download-option">
+              <h3>{dl.cvTitle}</h3>
+              <p>{dl.cvNote}</p>
+              <a className="button button-light" href={`mailto:itbamuhammadkamil@gmail.com?subject=${encodeURIComponent(dl.mailSubject)}&body=${encodeURIComponent(dl.mailBody)}`}>{dl.cvButton} <span>↗</span></a>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top">ITBA<span>.</span></a><p>{ui.footerCopy.split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</p></div><div className="footer-cta"><p>{ui.contact}</p><div className="footer-talk-wrap"><button className="footer-talk" type="button" aria-expanded={talkOpen} onClick={() => setTalkOpen((open) => !open)}>{ui.letsTalk} <span>↗</span></button>{talkOpen && <div className="talk-options"><a href="https://ig.me/m/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.linkedin.com/in/itbamuhammad/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="mailto:itbamuhammadkamil@gmail.com">Email <span>↗</span></a></div>}</div></div></div><div className="footer-bottom"><span>© 2026 Itba Muhammad Kamil</span></div></footer>
