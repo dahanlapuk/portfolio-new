@@ -9,7 +9,8 @@ const SECONDS = 5
 const text = {
   en: {
     kicker: 'Redirecting',
-    lead: "You're being sent to",
+    lead: "You're being sent to my",
+    leadSuffix: '',
     note: (n: number) => `Taking you there in ${n} second${n === 1 ? '' : 's'}.`,
     paused: 'Redirect paused.',
     go: 'Go now',
@@ -22,6 +23,7 @@ const text = {
   id: {
     kicker: 'Pengalihan',
     lead: 'Anda akan diarahkan ke',
+    leadSuffix: 'saya',
     note: (n: number) => `Anda akan dibawa ke sana dalam ${n} detik.`,
     paused: 'Pengalihan dijeda.',
     go: 'Langsung ke sana',
@@ -96,6 +98,7 @@ function RedirectPage() {
           </p>
           <h1 className="redirect-title">
             {ui.lead} <span className="redirect-target">{link.label}</span>
+            {ui.leadSuffix && ` ${ui.leadSuffix}`}
           </h1>
           <div className="redirect-count" aria-live="polite">
             <span className="redirect-number">{paused ? '||' : left}</span>
