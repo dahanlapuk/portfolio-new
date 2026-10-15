@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /download/
 Allow: /
 
 Sitemap: https://www.itbamuhammad.me/sitemap.xml

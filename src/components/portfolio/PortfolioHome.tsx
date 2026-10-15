@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ProjectPanel } from '#/components/portfolio/ProjectPanel'
 import { experienceItems } from '#/data/experience'
 import { projects, writing, type ProjectSlug } from '#/data/portfolio'
-import { aboutSocialLinks, copy, downloadCopy, portfolioFiles, projectCopy, socialLinks, type Language, type Theme } from '#/data/site'
+import { aboutSocialLinks, copy, downloadCopy, projectCopy, socialLinks, type Language, type Theme } from '#/data/site'
 
 
 const keywordSplit = /(digital|filosof\w*|philosoph\w*)/gi
@@ -147,7 +147,7 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
           <div className="download-grid">
             <div className="download-option">
               <h3>{dl.plainTitle}</h3>
-              <a className="button button-dark" href={portfolioFiles[language].href}>{dl.plainButton} <span>↓</span></a>
+              <a className="button button-dark" href={`/download/portfolio/${language}`}>{dl.plainButton} <span>↓</span></a>
             </div>
             <div className="download-option">
               <h3>{dl.cvTitle}</h3>

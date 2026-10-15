@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SlugRouteImport } from './routes/$slug'
+import { Route as DownloadPortfolioIndexRouteImport } from './routes/download.portfolio.index'
+import { Route as DownloadPortfolioLangRouteImport } from './routes/download.portfolio.$lang'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +24,55 @@ const SlugRoute = SlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DownloadPortfolioIndexRoute = DownloadPortfolioIndexRouteImport.update({
+  id: '/download/portfolio/',
+  path: '/download/portfolio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadPortfolioLangRoute = DownloadPortfolioLangRouteImport.update({
+  id: '/download/portfolio/$lang',
+  path: '/download/portfolio/$lang',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
+  '/download/portfolio/$lang': typeof DownloadPortfolioLangRoute
+  '/download/portfolio/': typeof DownloadPortfolioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
+  '/download/portfolio/$lang': typeof DownloadPortfolioLangRoute
+  '/download/portfolio': typeof DownloadPortfolioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$slug': typeof SlugRoute
+  '/download/portfolio/$lang': typeof DownloadPortfolioLangRoute
+  '/download/portfolio/': typeof DownloadPortfolioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$slug'
+  fullPaths:
+    '/' | '/$slug' | '/download/portfolio/$lang' | '/download/portfolio/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$slug'
-  id: '__root__' | '/' | '/$slug'
+  to: '/' | '/$slug' | '/download/portfolio/$lang' | '/download/portfolio'
+  id:
+    | '__root__'
+    | '/'
+    | '/$slug'
+    | '/download/portfolio/$lang'
+    | '/download/portfolio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SlugRoute: typeof SlugRoute
+  DownloadPortfolioLangRoute: typeof DownloadPortfolioLangRoute
+  DownloadPortfolioIndexRoute: typeof DownloadPortfolioIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +91,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/download/portfolio/': {
+      id: '/download/portfolio/'
+      path: '/download/portfolio'
+      fullPath: '/download/portfolio/'
+      preLoaderRoute: typeof DownloadPortfolioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/download/portfolio/$lang': {
+      id: '/download/portfolio/$lang'
+      path: '/download/portfolio/$lang'
+      fullPath: '/download/portfolio/$lang'
+      preLoaderRoute: typeof DownloadPortfolioLangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SlugRoute: SlugRoute,
+  DownloadPortfolioLangRoute: DownloadPortfolioLangRoute,
+  DownloadPortfolioIndexRoute: DownloadPortfolioIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
