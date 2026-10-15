@@ -45,7 +45,12 @@ export const Route = createRootRoute({
           'Web developer and writer building digital things with a critical, analytical approach shaped by philosophy.',
       },
       { property: 'og:url', content: SITE_URL },
-      { name: 'twitter:card', content: 'summary' },
+      { property: 'og:image', content: `${SITE_URL}og-image.png` },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: 'Itba Muhammad Kamil, Web Developer & Writer, with the I-in-braces logo' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: `${SITE_URL}og-image.png` },
     ],
     links: [
       {
