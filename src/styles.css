@@ -285,3 +285,6 @@ body:has(dialog[open]) { overflow: hidden; }
 .download-option p { margin: 0; max-width: 360px; color: var(--muted); font-size: 15px; line-height: 1.45; }
 .download-option .button { align-self: flex-start; margin-top: auto; }
 .download-option .button-light { border: 1px solid var(--line); }
+
+.wordmark { display: inline-flex; align-items: center; }
+.wordmark-mark { display: block; width: 1.1em; height: 1.1em; margin-right: .4em; }

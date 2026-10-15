@@ -87,7 +87,7 @@ function RedirectPage() {
     <div className={`site-shell redirect-page theme-${theme}`}>
       <header className="site-header">
         <Link className="wordmark" to="/" aria-label="Itba home">
-          ITBA<span>.</span>
+          <img className="wordmark-mark" src={`/img/logo/${theme}-128.png`} alt="" width="28" height="28" />ITBA<span>.</span>
         </Link>
       </header>
       <main className="redirect-main">
@@ -133,7 +133,7 @@ function LinkNotFound() {
     <div className={`site-shell redirect-page theme-${theme}`}>
       <header className="site-header">
         <Link className="wordmark" to="/" aria-label="Itba home">
-          ITBA<span>.</span>
+          <img className="wordmark-mark" src={`/img/logo/${theme}-128.png`} alt="" width="28" height="28" />ITBA<span>.</span>
         </Link>
       </header>
       <main className="redirect-main">

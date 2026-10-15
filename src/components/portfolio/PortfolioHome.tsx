@@ -75,7 +75,7 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
   return (
     <div className={`site-shell theme-${theme}`}>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Itba home">ITBA<span>.</span></a>
+        <a className="wordmark" href="#top" aria-label="Itba home"><img className="wordmark-mark" src={`/img/logo/${theme}-128.png`} alt="" width="28" height="28" />ITBA<span>.</span></a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#work">{ui.nav[0]}</a><a href="#writing">{ui.nav[1]}</a><a href="#experience">{ui.nav[2]}</a><a href="#about">{ui.nav[3]}</a>
         </nav>
@@ -158,7 +158,7 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
         </section>
       </main>
 
-      <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top">ITBA<span>.</span></a><p>{ui.footerCopy.split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</p></div><div className="footer-cta"><p>{ui.contact}</p><div className="footer-talk-wrap"><button className="footer-talk" type="button" aria-expanded={talkOpen} onClick={() => setTalkOpen((open) => !open)}>{ui.letsTalk} <span>↗</span></button>{talkOpen && <div className="talk-options"><a href="https://ig.me/m/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.linkedin.com/in/itbamuhammad/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="mailto:itbamuhammadkamil@gmail.com">Email <span>↗</span></a></div>}</div></div></div><div className="footer-bottom"><span>© 2026 Itba Muhammad Kamil</span></div></footer>
+      <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top"><img className="wordmark-mark" src={`/img/logo/${theme}-128.png`} alt="" width="28" height="28" />ITBA<span>.</span></a><p>{ui.footerCopy.split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</p></div><div className="footer-cta"><p>{ui.contact}</p><div className="footer-talk-wrap"><button className="footer-talk" type="button" aria-expanded={talkOpen} onClick={() => setTalkOpen((open) => !open)}>{ui.letsTalk} <span>↗</span></button>{talkOpen && <div className="talk-options"><a href="https://ig.me/m/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.linkedin.com/in/itbamuhammad/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="mailto:itbamuhammadkamil@gmail.com">Email <span>↗</span></a></div>}</div></div></div><div className="footer-bottom"><span>© 2026 Itba Muhammad Kamil</span></div></footer>
 
       <ProjectPanel slug={activeProject} language={language} onClose={() => onSelectProject(undefined)} />
     </div>
