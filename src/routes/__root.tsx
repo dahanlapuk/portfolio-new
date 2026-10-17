@@ -16,7 +16,7 @@ const personJsonLd = {
     'https://www.linkedin.com/in/itbamuhammad/',
     'https://medium.com/@itbamuhammad',
     'https://www.instagram.com/itbamuhammad_',
-    'https://twitter.com/dahanlapuk',
+    'https://x.com/itbamuhammad_',
   ],
 }
 
