@@ -2,22 +2,22 @@ export type Language = 'id' | 'en'
 export type Theme = 'cold' | 'light' | 'warm' | 'deep'
 
 export const socialLinks = [
-  ['GitHub', 'https://github.com/dahanlapuk'],
-  ['LinkedIn', 'https://www.linkedin.com/in/itbamuhammad/'],
-  ['Instagram', 'https://www.instagram.com/itbamuhammad_'],
-  ['X', 'https://x.com/itbamuhammad_'],
-  ['Medium', 'https://medium.com/@itbamuhammad'],
-  ['YouTube', 'https://youtu.be/eEtHOsudTNw'],
+  ['GitHub', '/github?ref=site'],
+  ['LinkedIn', '/linkedin?ref=site'],
+  ['Instagram', '/instagram?ref=site'],
+  ['X', '/twitter?ref=site'],
+  ['Medium', '/medium?ref=site'],
+  ['YouTube', '/youtube?ref=site'],
 ] as const
 
 export const aboutSocialLinks = [
-  ['Instagram', 'https://www.instagram.com/itbamuhammad_'],
-  ['Facebook', 'https://www.facebook.com/itbamuhammad.kamil.3'],
-  ['X', 'https://twitter.com/dahanlapuk'],
-  ['LinkedIn', 'https://www.linkedin.com/in/itbamuhammad/'],
-  ['KaryaKarsa', 'https://karyakarsa.com/dahanlapuk'],
-  ['YouTube', 'https://youtu.be/eEtHOsudTNw'],
-  ['GitHub', 'https://github.com/dahanlapuk'],
+  ['Instagram', '/instagram?ref=site'],
+  ['Facebook', '/facebook?ref=site'],
+  ['X', '/twitter?ref=site'],
+  ['LinkedIn', '/linkedin?ref=site'],
+  ['KaryaKarsa', '/karyakarsa?ref=site'],
+  ['YouTube', '/youtube?ref=site'],
+  ['GitHub', '/github?ref=site'],
 ] as const
 
 export const projectCopy = {

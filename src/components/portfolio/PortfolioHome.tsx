@@ -92,7 +92,7 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
         <section className="work-section section-frame" id="work">
           <div className="section-heading"><h2 className="section-title">{ui.selectedWork}</h2><p className="section-note">{ui.workNote}</p></div>
           <div className="project-list">{projects.map((project) => { const localized = projectCopy[project.slug][language]; return <article className={`project ${project.featured ? 'project-featured' : ''} ${project.status ? 'project-archived' : ''} project-clickable`} key={project.number} onClick={() => onSelectProject(project.slug)}><div className="project-visual"><span>{project.number}</span><div className="visual-label">{project.name}</div><div className="visual-grid" /></div><div className="project-copy"><div className="project-title"><span className="project-number">{project.number}</span><h2>{project.name}</h2></div><p className="project-type">{localized.type} {project.status && <b className="project-status">{project.status === 'Active' ? ui.status : project.status === 'Archived' ? ui.archived : ui.deprecated}</b>}</p><p className="project-description">{localized.description}</p><p className="project-case-study">{localized.story}</p><p className="project-stack">{project.stack}</p><div className="project-actions" onClick={(event) => event.stopPropagation()}><button className="project-button" type="button" onClick={() => onSelectProject(project.slug)}>{ui.details}</button><a className="project-button" href={project.githubUrl} target="_blank" rel="noreferrer">{ui.github} <span>↗</span></a>{project.liveUrl ? <a className="project-button" href={project.liveUrl} target="_blank" rel="noreferrer">{project.status ? ui.historicalSite : 'Live site'} <span>↗</span></a> : <span className="project-button project-button-disabled">{ui.liveUnavailable}</span>}</div></div></article> })}</div>
-          <a className="section-link" href="https://github.com/dahanlapuk" target="_blank" rel="noreferrer">{ui.seeAll} <span>↗</span></a>
+          <a className="section-link" href="/github?ref=site" target="_blank" rel="noreferrer">{ui.seeAll} <span>↗</span></a>
         </section>
 
         <section className="approach-section section-frame" id="about">
@@ -104,7 +104,7 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
         <section className="writing-section section-frame" id="writing">
           <div className="section-heading"><h2 className="section-title">{ui.writing}</h2><p className="section-note">{ui.writingNote}</p></div>
           <div className="writing-list">{writing.map((article) => <a className="writing-item" href={article.url} target="_blank" rel="noreferrer" key={article.title}><img src={`/img/medium/medium-new-thumbnail/${article.image}-${theme}.svg`} alt="" /><div className="writing-copy"><h2>{article.title}</h2><p>{article.category}</p></div><div className="writing-overlay"><div className="writing-overlay-title">{article.title}</div><span className="writing-cta">Read more on Medium <b>↗</b></span></div></a>)}</div>
-          <a className="section-link" href="https://medium.com/@itbamuhammad" target="_blank" rel="noreferrer">{ui.readAll} <span>↗</span></a>
+          <a className="section-link" href="/medium?ref=site" target="_blank" rel="noreferrer">{ui.readAll} <span>↗</span></a>
         </section>
 
         <section className="experience-section section-frame" id="experience">
@@ -152,13 +152,13 @@ export function PortfolioHome({ activeProject, onSelectProject }: PortfolioHomeP
             <div className="download-option">
               <h3>{dl.cvTitle}</h3>
               <p>{dl.cvNote}</p>
-              <a className="button button-light" href={`mailto:itbamuhammadkamil@gmail.com?subject=${encodeURIComponent(dl.mailSubject)}&body=${encodeURIComponent(dl.mailBody)}`}>{dl.cvButton} <span>↗</span></a>
+              <a className="button button-light" href={`mailto:contact@itbamuhammad.me?subject=${encodeURIComponent(dl.mailSubject)}&body=${encodeURIComponent(dl.mailBody)}`}>{dl.cvButton} <span>↗</span></a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top"><img className="wordmark-mark" src={`/img/logo/${theme}-128.png`} alt="" width="28" height="28" />ITBA<span>.</span></a><p>{ui.footerCopy.split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</p></div><div className="footer-cta"><p>{ui.contact}</p><div className="footer-talk-wrap"><button className="footer-talk" type="button" aria-expanded={talkOpen} onClick={() => setTalkOpen((open) => !open)}>{ui.letsTalk} <span>↗</span></button>{talkOpen && <div className="talk-options"><a href="https://ig.me/m/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="https://www.linkedin.com/in/itbamuhammad/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="mailto:itbamuhammadkamil@gmail.com">Email <span>↗</span></a></div>}</div></div></div><div className="footer-bottom"><span>© 2026 Itba Muhammad Kamil</span></div></footer>
+      <footer className="site-footer section-frame"><div className="footer-main"><div className="footer-brand"><a className="wordmark" href="#top"><img className="wordmark-mark" src={`/img/logo/${theme}-128.png`} alt="" width="28" height="28" />ITBA<span>.</span></a><p>{ui.footerCopy.split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</p></div><div className="footer-cta"><p>{ui.contact}</p><div className="footer-talk-wrap"><button className="footer-talk" type="button" aria-expanded={talkOpen} onClick={() => setTalkOpen((open) => !open)}>{ui.letsTalk} <span>↗</span></button>{talkOpen && <div className="talk-options"><a href="https://ig.me/m/itbamuhammad_" target="_blank" rel="noreferrer">Instagram <span>↗</span></a><a href="/linkedin?ref=site" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a><a href="mailto:contact@itbamuhammad.me">Email <span>↗</span></a></div>}</div></div></div><div className="footer-bottom"><span>© 2026 Itba Muhammad Kamil</span></div></footer>
 
       <ProjectPanel slug={activeProject} language={language} onClose={() => onSelectProject(undefined)} />
     </div>

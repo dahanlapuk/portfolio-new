@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { resolveShortLink } from '#/data/shortlinks'
 import type { Language, Theme } from '#/data/site'
 
-const SECONDS = 5
+const SECONDS_DEFAULT = 5
+const SECONDS_INTERNAL = 3
 
 const text = {
   en: {
@@ -49,6 +50,9 @@ function useSiteTheme() {
 }
 
 export const Route = createFileRoute('/$slug')({
+  validateSearch: (search: Record<string, unknown>) => ({
+    ref: search.ref === 'site' ? ('site' as const) : undefined,
+  }),
   loader: ({ params }) => {
     const link = resolveShortLink(params.slug)
     if (!link) throw notFound()
@@ -66,6 +70,8 @@ export const Route = createFileRoute('/$slug')({
 
 function RedirectPage() {
   const { link } = Route.useLoaderData()
+  const { ref } = Route.useSearch()
+  const SECONDS = ref === 'site' ? SECONDS_INTERNAL : SECONDS_DEFAULT
   const { theme, language } = useSiteTheme()
   const ui = text[language]
   const [left, setLeft] = useState<number>(SECONDS)
